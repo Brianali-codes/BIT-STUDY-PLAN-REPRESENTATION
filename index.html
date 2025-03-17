@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BIT Study Plan Visualization</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f7f9fc;
+      color: #333;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+    }
+    
+    .timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: #3498db;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+      border-radius: 5px;
+    }
+    
+    .module {
+      padding: 10px 40px;
+      position: relative;
+      width: 42%;
+      box-sizing: border-box;
+    }
+    
+    .left {
+      left: 0;
+    }
+    
+    .right {
+      left: 50%;
+    }
+    
+    .module::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: -10px;
+      background-color: white;
+      border: 4px solid #3498db;
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    
+    .left::after {
+      right: -14px;
+    }
+    
+    .right::after {
+      left: -14px;
+    }
+    
+    .content {
+      padding: 20px 25px;
+      background-color: white;
+      position: relative;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    
+    .content h2 {
+      color: #3498db;
+      margin-top: 0;
+      font-size: 1.3rem;
+      border-bottom: 2px solid #f1f1f1;
+      padding-bottom: 10px;
+    }
+    
+    .content p {
+      margin-bottom: 0;
+      line-height: 1.5;
+      color: #555;
+    }
+    
+    .tag {
+      display: inline-block;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      padding: 4px 8px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      background-color: #e1f0fa;
+      color: #3498db;
+    }
+    
+    .programming { background-color: #e1f0fa; color: #3498db; }
+    .data { background-color: #e8f8f5; color: #16a085; }
+    .web { background-color: #fef5e7; color: #f39c12; }
+    .security { background-color: #fdedec; color: #e74c3c; }
+    .systems { background-color: #eaeded; color: #7f8c8d; }
+    .ai { background-color: #f4ecf7; color: #8e44ad; }
+    .mobile { background-color: #ebf5fb; color: #2980b9; }
+    
+    .weekly-schedule {
+      margin-top: 50px;
+      background-color: white;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .weekly-schedule h2 {
+      color: #2c3e50;
+      border-bottom: 2px solid #f1f1f1;
+      padding-bottom: 10px;
+    }
+    
+    .day {
+      margin-bottom: 15px;
+    }
+    
+    .day h3 {
+      color: #3498db;
+      margin-bottom: 5px;
+    }
+    
+    .day ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    
+    .day li {
+      margin-bottom: 5px;
+      color: #555;
+    }
+    
+    @media screen and (max-width: 600px) {
+      .timeline::after {
+        left: 31px;
+      }
+      
+      .module {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      
+      .module::after {
+        left: 15px;
+      }
+      
+      .left::after, .right::after {
+        left: 15px;
+      }
+      
+      .right {
+        left: 0%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>BIT Study Plan: 24-Week Journey</h1>
+    
+    <div class="timeline">
+      <!-- Weeks 1-4: Foundations -->
+      <div class="module left">
+        <div class="content">
+          <h2>Week 1: Programming Basics</h2>
+          <p>Building the foundation with variables, data types, operators and control flow structures.</p>
+          <div class="tags">
+            <span class="tag programming">Variables</span>
+            <span class="tag programming">Control Flow</span>
+            <span class="tag programming">Data Types</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="module right">
+        <div class="content">
+          <h2>Week 2: Advanced Python</h2>
+          <p>Elevating skills with functions, modules, file operations and object-oriented programming.</p>
+          <div class="tags">
+            <span class="tag programming">Functions</span>
+            <span class="tag programming">OOP</span>
+            <span class="tag programming">Modules</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="module left">
+        <div class="content">
+          <h2>Week 3: Data Structures & Algorithms</h2>
+          <p>Mastering the building blocks of efficient code with lists, stacks, queues and search algorithms.</p>
+          <div class="tags">
+            <span class="tag data">Lists</span>
+            <span class="tag data">Algorithms</span>
+            <span class="tag data">Big O</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="module right">
+        <div class="content">
+          <h2>Week 4: Databases</h2>
+          <p>Understanding data persistence through SQL, normalization, and CRUD operations.</p>
+          <div class="tags">
+            <span class="tag data">SQL</span>
+            <span class="tag data">Normalization</span>
+            <span class="tag data">CRUD</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Weeks 5-8: Web & Networking -->
+      <div class="module left">
+        <div class="content">
+          <h2>Week 5: Web Development</h2>
+          <p>Creating web experiences with HTML, CSS, and JavaScript fundamentals.</p>
+          <div class="tags">
+            <span class="tag web">HTML</span>
+            <span class="tag web">CSS</span>
+            <span class="tag web">JavaScript</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="module right">
+        <div class="content">
+          <h2>Week 6: Front-end Development</h2>
+          <p>Building interactive UIs with React, state management, and API integration.</p>
+          <div class="tags">
+            <span class="tag web">React</span>
+            <span class="tag web">State</span>
+            <span class="tag web">APIs</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="module left">
+        <div class="content">
+          <h2>Week 7: Back-end Development</h2>
+          <p>Developing server-side applications with Node.js, Express, and REST APIs.</p>
+          <div class="tags">
+            <span class="tag web">Node.js</span>
+            <span class="tag web">Express</span>
+            <span class="tag web">REST</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="module right">
+        <div class="content">
+          <h2>Week 8: Networking</h2>
+          <p>Understanding digital communication through OSI model, protocols, and subnetting.</p>
+          <div class="tags">
+            <span class="tag systems">OSI Model</span>
+            <span class="tag systems">TCP/IP</span>
+            <span class="tag systems">Subnetting</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Continuing with selective weeks -->
+      <div class="module left">
+        <div class="content">
+          <h2>Week 9: Cybersecurity Basics</h2>
+          <p>Protecting digital assets with encryption, hashing, and ethical hacking principles.</p>
+          <div class="tags">
+            <span class="tag security">Encryption</span>
+            <span class="tag security">Hashing</span>
+            <span class="tag security">Ethical Hacking</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="module right">
+        <div class="content">
+          <h2>Week 14: Machine Learning Basics</h2>
+          <p>Teaching computers to learn with supervised and unsupervised learning techniques.</p>
+          <div class="tags">
+            <span class="tag ai">Supervised</span>
+            <span class="tag ai">Unsupervised</span>
+            <span class="tag ai">Model Training</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="module left">
+        <div class="content">
+          <h2>Week 21: Mobile App Development</h2>
+          <p>Creating apps for mobile platforms using React Native, Flutter, and native Android.</p>
+          <div class="tags">
+            <span class="tag mobile">React Native</span>
+            <span class="tag mobile">Flutter</span>
+            <span class="tag mobile">Android</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="module right">
+        <div class="content">
+          <h2>Week 24: Capstone Project</h2>
+          <p>Culmination of learning through development of a full-stack or AI-based project.</p>
+          <div class="tags">
+            <span class="tag programming">Design</span>
+            <span class="tag programming">Implementation</span>
+            <span class="tag programming">Presentation</span>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div class="weekly-schedule">
+      <h2>Weekly Learning Structure</h2>
+      
+      <div class="day">
+        <h3>Monday-Tuesday: Concept Introduction</h3>
+        <ul>
+          <li>Theoretical learning of fundamental principles</li>
+          <li>Educational videos and documentation reading</li>
+          <li>Note-taking on key concepts</li>
+        </ul>
+      </div>
+      
+      <div class="day">
+        <h3>Wednesday-Thursday: Practical Implementation</h3>
+        <ul>
+          <li>Hands-on coding exercises and lab work</li>
+          <li>Problem-solving challenges</li>
+          <li>Mini-projects implementing concepts</li>
+        </ul>
+      </div>
+      
+      <div class="day">
+        <h3>Friday: Review and Advancement</h3>
+        <ul>
+          <li>Quiz or assessment on week's material</li>
+          <li>Review of challenging concepts</li>
+          <li>Preview of next week's material</li>
+        </ul>
+      </div>
+      
+      <div class="day">
+        <h3>Weekend: Project Work and Consolidation</h3>
+        <ul>
+          <li>Mini-project application of weekly learning</li>
+          <li>Review of notes and supplementary reading</li>
+          <li>Study group discussions and networking</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
